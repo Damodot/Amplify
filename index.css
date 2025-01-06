@@ -10,7 +10,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 28px;
     overflow: hidden;
 }
 .container{
@@ -176,8 +176,8 @@ body{
     text-decoration: none;
     color: rgb(63, 162, 255);
 }
-.check span{
-    font-size: 0.3em;
+.check{
+    font-size: 0.4em;
 }
 .check a:hover{
     text-decoration: underline;
@@ -311,6 +311,9 @@ form {
 }
 
 @media (max-width: 360px) {
+    body{
+        font-size: 26px;
+    }
     .form{
         width: 96%;
     }

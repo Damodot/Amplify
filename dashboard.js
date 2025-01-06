@@ -24,7 +24,10 @@ if (!databaseNew) {
         alert('Please Create an Account')
         window.location.href = `index.html`
     } else {
-        output.innerHTML = `<marquee behavior="scroll" direction="left" class="fw-bold fs-6 text-white">Hello ${databaseNew[last].name} Welcome to HitVerse!</marquee>`
+        output.innerHTML = `<h6 class="fw-bold fs-6 text-white text-center">Hello ${databaseNew[last].name} Welcome to HitVerse!</h6>`
+        setTimeout(() => {
+            output.innerHTML = '';
+        }, 8000);
     }
 }
 
