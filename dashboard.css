@@ -1,0 +1,213 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    font-size: 40px;
+    font-family: "Roboto", sans-serif;
+    transition: background-image 0.3s ease, color 0.3s ease;
+    overflow: hidden;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.loader img{
+    width: 4em;
+    height: 0.8em;
+    animation: blink 1s ease infinite;
+}
+@keyframes blink {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.2;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.loader{
+    background-color: black;
+    position: absolute;
+    display: flex;
+    height: 100dvh;  
+    z-index: 10;
+}
+
+/* Dashboard */
+main{
+    width: 100%;
+    z-index: 1;
+}
+.inPlay{
+    width: 35%;
+    height: 96dvh;
+    overflow-y: auto;
+    position: relative; 
+    border-right: 1px solid white;
+}
+.inPlay::-webkit-scrollbar{
+    width: 0;
+}
+.image{
+    width: 4em;
+    aspect-ratio: 1 / 1;
+    background-image: url(soundCheck.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.image span,
+.image p{
+    font-size: 0.5em;
+}
+.dpics{
+    width: 0.7em;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+.dpics img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.songName{
+    font-size: 1.3em;   
+}
+.musicArt{
+    width: 40%;
+    aspect-ratio: 1 / 1; 
+    overflow: hidden;   
+    object-fit: cover;
+    object-position: center;
+}
+.musicArt img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.playDiv i{
+    font-size: 2em;
+    color: black;
+}
+.playDiv{
+    width: fit-content;
+}
+.nameInfo p{
+    font-size: 0.4em;
+}
+.undBtns{
+    bottom: 0.3em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+.undBtns i,
+.nameInfo p{
+    color: black;
+}
+.whiteWrd{
+    color: white;
+}
+.timerDiv span{
+    font-size: 0.3em;
+}
+.waiter{
+    width: 60%;
+    accent-color: rgb(97,0,161);
+}
+.wrdLogo{
+    width: 2em;
+    height: 0.33em;
+}
+.imageLogo{
+    width: 2em;
+}
+.hitLogo{
+    width: 0.7em;
+    aspect-ratio: 1 / 1;
+    background-image: url(hitverse\ \ logo.png);
+    background-size: cover;
+}
+.libraryCont span{
+    font-size: 0.4em;
+    color: rgb(97,0,161);
+}
+.title span{
+    font-size: 0.5em;
+    color: rgb(97,0,161);
+}
+.contRgt i{
+    font-size: 0.4em;
+}
+.options i,
+.options span{
+    font-size: 1.5em;
+}
+.songList{
+    display: none;
+}
+.image{
+    width: 4em;
+    aspect-ratio: 1 / 1;
+    background-image: url(soundCheck.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.songName{
+    font-size: 1.3em;   
+}
+.imageTwo{
+    background-image: url(IMG_3189.jpg);
+}
+.imageThree{
+    background-image: url(Damn.jpg);
+}
+.imageFour{
+    background-image: url(IMG-9415.jpg);
+}
+.soundCheckList,
+.popList{
+    display: none;
+}
+section{
+    height: 96dvh;
+    overflow-y: auto;
+}
+section::-webkit-scrollbar{
+    width: 0;
+}
+.songTitle{
+    background-color: black;
+    top: 0;
+    z-index: 5;
+}
+.realList{
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    body{
+        font-size: 35px;
+    }
+    .inPlay{
+        width: 100%;
+        position: fixed;
+        display: none;
+        left: 0;
+        background-color: black;
+        z-index: 15;
+    }
+    section{
+        width: 100%;
+    }
+    .options i,
+    .options span{
+        font-size: 1em;
+    }
+}

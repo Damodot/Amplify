@@ -4,303 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
-        <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.js" defer></script>
+        <link rel="stylesheet" href="login.css">
         <link rel="shortcut icon" href="Adedeji.png">
-        <title>ADEDEJI</title>
-        <style>
-            *{
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            body{
-                width: 100%;
-                height: 100vh;
-                background-color: black;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 40px;
-                overflow: hidden;
-            }
-            .container{
-                width: 50%;
-                height: 100%;
-                /* background-color: red; */
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-            }
-            .sun{
-                width: 4em;
-                height: 4em;
-                background-color: yellow;
-                border-radius: 100%;
-                box-shadow: 0 0 3em yellow;
-                z-index: 5;
-            }
-            .earth-orb,
-            .moon-orb{
-                position: absolute;
-                border-color: white transparent transparent transparent;
-                border-style: solid;
-                border-width: 0.05em 0.05em 0 0;
-                z-index: 1;
-            }
-            .earth-orb{
-                width: 8em;
-                height: 8em;
-                /* background-color: green; */
-                border-radius: 100%;
-                animation: orbit 30s linear infinite;
-            }
-            .moon-orb{
-                width: 2em;
-                height: 2em;
-                /* background-color: gold; */
-                border-radius: 100%;
-                right: 0.5em;
-                animation: orbit 3s linear infinite;
-            }
-            .earth{
-                width: 1.3em;
-                height: 1.3em;
-                background-color: aqua;
-                position: absolute;
-                right: 0.85em;
-                top: 0.4em;
-                border-radius: 100%;
-                z-index: 1;
-            }
-            .moon{
-                position: absolute;
-                width: 0.4em;
-                height: 0.4em;
-                background-color: silver;
-                border-radius: 100%;
-                right: 0.1em;
-                z-index: 1;
-            }
-            .moon-orb:hover,
-            .earth-orb:hover{
-                animation-play-state: paused;
-            }
-            @keyframes orbit {
-                to{
-                    transform: rotate(360deg);
-                }
-            }
-            .cont{
-                width: 50%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-            }
-            .cont1,
-            .cont3{
-                width: 6em;
-                height: 3em;
-                background-color: black;
-                display: flex;
-                align-items: center;
-            }
-            .cont1{
-                animation: mov-rgt 1s linear forwards;
-                animation-delay: 2s;
-                justify-content: flex-end;
-            }
-            .cont3{
-                justify-content: left;
-                animation: mov-lft 1s linear forwards;
-                animation-delay: 2s;
-            }
-            .cont2{
-                width: 7.8em;
-                height: 3em;
-                background-color: black;   
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            @keyframes mov-rgt {
-                to{
-                    transform: translate(3.95em);
-                }
-            }
-            @keyframes mov-lft {
-                to{
-                    transform: translate(-3.95em);
-                }
-            }
-            @keyframes up {
-                to{
-                    transform: translate(0, -5.8em);
-                }
-            }
-            .bigcont{
-                display: flex;
-                width: auto;
-                height: auto;
-                animation: up 2s linear forwards;
-                animation-delay: 4s;
-            }
-            .bigcont kbd{
-                color: white;
-                font-size: 2.8em;
-                font-weight: 800;
-                background-color: transparent;
-            }
-            .form{
-                width: fit-content;
-                height: fit-content;
-                background-color: white;
-                position: absolute;
-                border-radius: 0.5em;
-                animation: show 0.5s linear forwards;
-                animation-delay: 6s;
-                transform: scale(0);
-                margin-top: 12vh;
-                display: flex;                
-                align-items: center;
-                flex-direction: column;
-                overflow: hidden;
-            }
-            @keyframes show {
-                to{
-                    transform: scale(1);
-                }
-            }
-            .form img{
-                width: 1.5em;
-                height: 1.5em;
-                margin-top: 0.5em;
-            }
-            .names input{
-                width: 48%;
-                height: 2em;
-            }
-            .sideOne span{
-                font-size: 0.3em;
-            }
-            .sideOne{
-                width: 30%;
-            }
-            .check a{
-                font-size: 0.3em;
-                text-decoration: none;
-                color: rgb(63, 162, 255);
-            }
-            .check a:hover{
-                text-decoration: underline;
-                color: rgb(89, 172, 250);
-            }
-            .myBtn{
-                background-color: black;
-                color: white;
-                transition: transform 0.3s ease;  
-            }
-            .myBtn:active{
-                transform: scale(0.9);
-                transition: transform 0.3s ease;
-            }
-            .myBtn:hover{
-                box-shadow: 2px 2px 2px rgb(0, 162, 255);
-                background-color: black;
-            }
-            form input{
-                font-size: 2em;
-                width: 15dvw;
-            }
-            .toggle-password{
-                right: 0.5em;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-            .imageAi:hover{
-                animation: shake 1s ease;
-                transition: transform 0.2s ease;
-            }
-            @keyframes shake {
-                0% {
-                    transform: rotate(10deg);
-                }
-                25% {
-                    transform: rotate(-10deg);
-                }
-                50% {
-                    transform: rotate(10deg);
-                }
-                100% {
-                    transform: rotate(-10deg);
-                }
-            }
-            form input:hover{
-                border: 0.5px solid rgb(89, 172, 250);
-            }
-            .formChange{
-                transform: translateX(-110%);
-                transition: transform 0.8s ease;
-            }
-            .form input::placeholder{
-                font-size: 1em;
-            }
-            .form input:valid{
-                border: 0.5px solid green;
-            }
-            .form input:invalid{
-                animation: shaker 0.3s ease;
-            }
-            @keyframes shaker {
-                0% { transform: translateX(0); }
-                25% { transform: translateX(-2px); }
-                50% { transform: translateX(2px); }
-                75% { transform: translateX(-2px); }
-                100% { transform: translateX(0); }
-            }
-            #login{
-                transform: translateX(110%);
-                top: 2.4em;
-                transition: transform 0.8s ease;
-                display: none;
-            }
-            .loginChange{
-                transform: translateX(0);
-                transition: transform 0.8s ease;
-            }
-            .logOptions button{
-                width: 2.5em;
-                height: 2.5em;
-                border-radius: 1em;
-                background-image: url(Download\ google\ play\ store\ icon\ logo\ symbol.jpeg);
-                background-size: cover;
-                transition: transform 0.3s ease;
-            }
-            .logOptions button:hover{
-                transform: scale(1.1);
-                transition: transform 0.3s ease;
-            }
-            #facebook{
-                background-image: url(Download\ Facebook\ logo\ png\,\ Facebook\ logo\ transparent\ png\,\ Facebook\ icon\ transparent\ free\ png.jpeg);
-            }
-            #microsoft{
-                background-image: url(Microsoft\ Logo\ PNG\ Vector\ \(EPS\)\ Free\ Download.jpeg);
-            }
-            #apple{
-                background-image: url(Apple\ Store\ Logo\ PNG\ Vector\ \(AI\,\ \ PDF\,\ \ SVG\)\ Free\ Download.jpeg);
-            }
-            .dee-none {
-                display: none;
-            }
-            form {
-                transition: opacity 0.3s ease, transform 0.3s ease;
-            }
-
-
-        </style>
+        <title>Login | Amplifi</title>
     </head>
     <body>
         <div class="cont">
@@ -309,7 +15,7 @@
                 <kbd>A</kbd>
             </div>
             <div class="cont2">
-                <kbd>DEDEJ</kbd>
+                <kbd>MPLIF</kbd>
             </div>
             <div class="cont3">
                 <kbd>i</kbd>
@@ -317,28 +23,30 @@
            </div>
            <div class="form p-3">
                 <img src="Adedeji.png" alt="" class="imageAi">
-                <form action="dashboard.html" method="get" id="signUp" onsubmit="return validatePasswords()">
-                    <input type="email" placeholder="Email" class="form-control mt-4" required id="email">
+                <div class="reply mt-3"></div>
+                <div id="login" class="w-100 formEle">
+                    <input type="email" placeholder="Email" class="form-control mt-4" id="email">
                     <div class="passwrd w-100 position-relative">
-                        <input type="password" placeholder="Password" class="form-control mt-4" required id="password">
+                        <input type="password" placeholder="Password" class="form-control mt-4" id="password">
                         <span class="btn toggle-password position-absolute" onclick="togglePasswordVisibility()">
-                            <img src="visoff.png" alt="Show Password" id="toggle-icon">
+                            <img src="vison.png" alt="Show Password" id="toggle-icon">
                         </span>
                     </div>
                     <div class="check d-flex justify-content-between align-items-center mt-4 w-100">
-                        <div class="sideOne h-100 d-flex align-items-center">
-                            <input type="checkbox">
-                            <span class="px-3">Remember me</span>
+                        <div class="firstSide w-auto d-flex align-items-center justify-content-left">
+                            <input type="checkbox" class="checkBox">
+                            <label for="" class="ms-2">Remember me</label>
                         </div>
                         <a href="">Forgot Password</a>
                     </div>
-                    <button class="btn myBtn px-5 py-2 fw-bold">Login</button>
-                </form>
+                    <button class="btn myBtn px-5 py-2 fw-bold logBtn" onclick="checkDets()">Login</button>
+                </div>
+                <span class="last">Don't have an account? <a href="index.html">Sign Up</a></span>
                 <div class="logOptions d-flex justify-content-evenly w-100 my-4">
-                    <button class="btn shadow btn-warning text-white fw-bolder p-3"></button>
-                    <button class="btn shadow btn-primary text-white fw-bolder p-3" id="facebook"></button>
-                    <button class="btn shadow btn-danger text-white fw-bolder p-3" id="microsoft"></button>
-                    <button class="btn shadow btn-info text-white fw-bolder p-3" id="apple"></button>
+                    <button class="btn shadow btn-warning text-white fw-bolder p-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Login with Google"></button>
+                    <button class="btn shadow btn-primary text-white fw-bolder p-3" id="facebook" data-bs-toggle="tooltip" data-bs-placement="top" title="Login with Facebook"></button>
+                    <button class="btn shadow btn-danger text-white fw-bolder p-3" id="microsoft" data-bs-toggle="tooltip" data-bs-placement="top" title="Login with Microsoft"></button>
+                    <button class="btn shadow btn-info text-white fw-bolder p-3" id="apple" data-bs-toggle="tooltip" data-bs-placement="top" title="Login with Apple"></button>
                 </div>
            </div>
         </div>
@@ -351,39 +59,7 @@
                 </div>
             </div>
         </div>
+        <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.js"></script>
+        <script src="login..js"></script>
     </body>
 </html>
-
-<script>
-    let database = JSON.parse(localStorage.getItem('userInfo')) || []
-    console.log(database);
-
-    function togglePasswordVisibility() {
-        let passwordInput = document.getElementById('password')
-        let toggleIcon = document.getElementById('toggle-icon')
-        
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text'
-            toggleIcon.src = 'vison.png'
-        } else {
-            passwordInput.type = 'password'
-            toggleIcon.src = 'visoff.png'
-        }
-    }
-    function validatePasswords() {
-        password = document.getElementById('password').value
-        email = document.getElementById('email').value
-        
-        if (password !== database[0].password) {
-            alert('User Information does not match, Try Again')
-            return false
-        } else if (email !== database[0].email) {
-            alert('User Information does not match, Try Again')
-            return false 
-        }
-        saveInfo()
-        return true
-    }
-
-
-</script>
