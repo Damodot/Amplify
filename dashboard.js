@@ -10,6 +10,15 @@ let allMusicTwo = document.querySelectorAll('.dadUnos')
 let allMusicThree = document.querySelectorAll('.singer')
 let myFirstView = document.querySelector('.loader')
 let output = document.querySelector('.reply')
+let playButton = document.querySelector(".playBTN")
+let koMaGbonButton = document.querySelector(".koMaGbon")
+let osheyButton = document.querySelector(".osheyButton")
+let audioPlayer = document.getElementById('audioPlayer')
+let waiter = document.querySelector('.waiter')
+let currentTime = document.querySelector('.current-time')
+let totalTime = document.querySelector('.total-time')
+let pushName = document.querySelector('.infoTitle')
+
 
 if (!databaseNew) {
     alert('Please Create an Account')
@@ -24,7 +33,7 @@ if (!databaseNew) {
         alert('Please Create an Account')
         window.location.href = `index.html`
     } else {
-        output.innerHTML = `<h6 class="fw-bold fs-6 text-white text-center">Hello ${databaseNew[last].name} Welcome to HitVerse!</h6>`
+        output.innerHTML = `<marquee class="fw-bold fs-6 text-white text-center">Hello ${databaseNew[last].name} Welcome to HitVerse!</marquee>`
         setTimeout(() => {
             output.innerHTML = '';
         }, 8000);
@@ -92,4 +101,60 @@ function remPlayer() {
         player.style.display = `block`
     }
 }
+playButton.addEventListener("click", () => {
+    if (audioPlayer.paused) {
+        audioPlayer.play()
+        playButton.innerHTML = `<i class="fa-solid fa-pause text-white"></i>`
+        console.log("Resumed");
+    } else {
+        audioPlayer.pause()
+        playButton.innerHTML = `<i class="fa-solid fa-play text-white"></i>`
+        console.log("Paused");
+    }
+})
+koMaGbonButton.addEventListener("click", () => {
+    audioPlayer.src = "koMaGbon.mp3"    
+    audioPlayer.play()
+    pushName.textContent = `Ko Ma Gbon` 
+    playButton.innerHTML = `<i class="fa-solid fa-pause text-white"></i>`
+    console.log("Playing");
+})
+
+osheyButton.addEventListener("click", () => {
+    audioPlayer.src = "Oshey.mp3"    
+    audioPlayer.play()
+    pushName.textContent = `Oshey` 
+    playButton.innerHTML = `<i class="fa-solid fa-pause text-white"></i>`
+    console.log("Playing");
+})
+
+
+audioPlayer.addEventListener('timeupdate', () => {
+    let current = audioPlayer.currentTime
+    let duration = audioPlayer.duration
+    waiter.value = (current / duration) * 100
+    currentTime.textContent = formatTime(current)
+})
+
+waiter.addEventListener('input', () => {
+    let duration = audioPlayer.duration
+    audioPlayer.currentTime = (waiter.value / 100) * duration
+})
+
+audioPlayer.addEventListener('loadedmetadata', () => {
+    totalTime.textContent = formatTime(audioPlayer.duration)
+})
+
+function formatTime(seconds) {
+    let minutes = Math.floor(seconds / 60)
+    let secs = Math.floor(seconds % 60)
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`
+}
+
+function likeSong() {
+    let likeButton = document.getElementById('likeButton')
+    likeButton.classList.toggle('text-danger')
+}
+
+window.addEventListener('DOMContentLoaded' , likeSong)
 console.log('hello');
