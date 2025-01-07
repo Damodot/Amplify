@@ -176,9 +176,6 @@ body{
     text-decoration: none;
     color: rgb(63, 162, 255);
 }
-.check{
-    font-size: 0.4em;
-}
 .check a:hover{
     text-decoration: underline;
     color: rgb(89, 172, 250);
@@ -225,10 +222,6 @@ form input{
 form input:hover{
     border: 0.5px solid rgb(89, 172, 250);
 }
-.formChange{
-    transform: translateX(-110%);
-    transition: transform 0.8s ease;
-}
 .form input::placeholder{
     font-size: 1em;
 }
@@ -257,7 +250,7 @@ form {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .last{
-    font-size: 0.3em;
+    font-size: 0.4em;
 }
 
 
